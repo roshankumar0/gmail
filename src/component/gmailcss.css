@@ -1,0 +1,187 @@
+body {
+    background-color: #F6F8FC;
+}
+
+/* gheader start  */
+.gheader__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    /* position: fixed;
+    right: 0;
+    left: 0;
+    top: 0; */
+}
+
+.gheader__hambg {
+    display: flex;
+    align-items: center;
+    display: flex;
+    min-width: 238px;
+    padding-right: 30px;
+}
+
+.gheader__hambg__icon {
+    height: 24px;
+    width: 24px;
+}
+
+.gheader__allapp {
+    display: flex;
+    align-items: center;
+}
+
+.gheader__allapp__icon {
+    height: 24px;
+    width: 24px;
+}
+
+.gheader__input__search {
+    display: flex;
+    flex: 1;
+}
+
+.gheader__profile {
+    height: 40px;
+    width: 40px;
+}
+
+.gheader__profile img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.gheader__input__search__mail {
+    display: flex;
+    background: #EAF1FB;
+    max-width: 720px;
+    border-radius: 50px;
+}
+
+.gheader__input__section {
+    flex: 1;
+    padding-right: 30px;
+    padding-left: 10px;
+}
+
+/* gheader end */
+/* gcontainer start */
+.gcontainer {
+    display: flex;
+    position: fixed;
+    right: 0;
+    left: 0;
+}
+
+.main__body {
+    flex: 1;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.main__body__content {
+    height: 95vh;
+    overflow: scroll;
+}
+
+.main__body__content>div {
+    height: 56px;
+    display: flex;
+}
+
+.main__body__table {
+    width: 100%;
+    height: 100%;
+}
+
+.main__body__table tbody td {
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+}
+
+.main__body__table tbody td:hover {
+    background-color: #F4F4F4;
+}
+
+.main__body__table tbody td div {
+    display: flex;
+    align-items: center;
+}
+
+.main__body__table tbody td div img {
+    height: 20px;
+    width: 20px;
+    margin: 0 16px;
+}
+
+.main__body__table tbody td div span {
+    font-size: 14px;
+    color: #444746;
+    font-weight: 500;
+}
+
+.nav__left {
+    max-width: 256px;
+    min-width: 256px;
+}
+
+.nav__left .nav__left__list::-webkit-scrollbar {
+    width: 4px;
+    color: green;
+}
+
+.nav__left .nav__left__list::-webkit-scrollbar-thumb {
+    background: blue;
+    border-radius: 10px;
+}
+
+.nav__left .nav__left__list {
+    overflow: scroll;
+    height: 102vh;
+
+}
+
+.nav__left__list {
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+
+}
+
+.nav__left__list li img {
+    height: 20px;
+    width: 20px;
+}
+
+.nav__left__user {
+    display: flex;
+    align-items: center;
+}
+
+.nav__left__user__icon {
+    height: 20px;
+    width: 20px;
+    display: flex;
+}
+
+.nav__left__user__icon img {
+    height: 100%;
+    width: 100%;
+}
+
+.nav__right {
+    height: 95vh;
+    overflow: scroll;
+    width: 56px;
+}
+
+aside.nav__right::-webkit-scrollbar {
+    display: none;
+}
+
+/* gcontainer end */
