@@ -42,6 +42,10 @@ body {
     flex: 1;
 }
 
+.gheader__input__search div>input {
+    background-color: red;
+}
+
 .gheader__profile {
     height: 40px;
     width: 40px;
@@ -79,13 +83,25 @@ body {
     flex: 1;
     background-color: #FFFFFF;
     border-radius: 10px;
+    margin-bottom: 40px;
 }
 
 .main__body__content {
-    height: 95vh;
-    overflow: scroll;
+    height: 80vh;
+    overflow-y: scroll;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
 }
 
+.main__body header .main__body__header__left {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+    margin: 0 16px 0 0 ;
+    padding: 0 16px 0 16px;
+}
+.main__body__header__left
 .main__body__content>div {
     height: 56px;
     display: flex;
@@ -96,9 +112,32 @@ body {
     height: 100%;
 }
 
+.main__body__table tbody tr {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .main__body__table tbody td {
     transition: all .4s ease-in-out;
     cursor: pointer;
+    height: 100%;
+    width: 153px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    flex: 1;
+}
+
+.main__body__table tbody td::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: blue;
+    height: 3px;
+    width: 90%;
+    bottom: 0;
+    border-radius: 2px
 }
 
 .main__body__table tbody td:hover {
@@ -122,24 +161,86 @@ body {
     font-weight: 500;
 }
 
+.main__body__table tr td .new__msg {
+    background-color: #e37400;
+    font-size: .75rem;
+    letter-spacing: normal;
+    color: #fff;
+    font-weight: 500;
+    height: 16px;
+    line-height: 16px;
+}
+
+.main__body__mail table {
+    width: 100%;
+    padding-bottom: 74px;
+}
+
+.main__body__mail table tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__body__mail__msg {
+    color: #5F6368;
+}
+
+.main__body__mail table tbody tr {
+    width: 100%;
+    background: #F2F6FC;
+    border-top: 1px solid green;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.main__body__mail tr td img {
+    height: 20px;
+    width: 20px;
+}
+
 .nav__left {
     max-width: 256px;
     min-width: 256px;
 }
 
+.nav__left__compose {
+    display: flex;
+    align-items: center;
+    width: min-content;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #C2E7FF;
+    border-radius: 16px;
+    color: #001d35;
+    height: 56px;
+    padding: 0 24px 0 0;
+    min-width: 96px;
+}
+
+.nav__left__compo {
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    font-size: medium;
+    height: 56px;
+    margin: 16px 0 16px;
+    padding: 0 0 0 8px;
+}
+
 .nav__left .nav__left__list::-webkit-scrollbar {
-    width: 4px;
-    color: green;
+    width: 8px;
 }
 
 .nav__left .nav__left__list::-webkit-scrollbar-thumb {
-    background: blue;
+    background: #828487;
     border-radius: 10px;
 }
 
 .nav__left .nav__left__list {
     overflow: scroll;
-    height: 102vh;
+    height: 70vh;
 
 }
 
@@ -158,9 +259,24 @@ body {
     width: 20px;
 }
 
+.nav__left__list>div {
+    width: 100%;
+}
+
 .nav__left__user {
     display: flex;
     align-items: center;
+    height: 32px;
+    padding: 0 12px 0 26px;
+    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.nav__left__user:hover {
+    background: gainsboro;
 }
 
 .nav__left__user__icon {
