@@ -14,6 +14,15 @@ body {
     top: 0; */
 }
 
+.gheader__item a {
+    padding: 8px;
+}
+
+.gheader__item svg:hover {
+    border-radius: 50%;
+    background-color: #E2E4E7;
+}
+
 .gheader__hambg {
     display: flex;
     align-items: center;
@@ -40,20 +49,27 @@ body {
 .gheader__input__search {
     display: flex;
     flex: 1;
+    cursor: pointer;
+    height: 44px;
+    align-items: center;
 }
 
 .gheader__input__search div>input {
-    background-color: red;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
 }
 
 .gheader__profile {
     height: 40px;
     width: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .gheader__profile img {
-    height: 100%;
-    width: 100%;
     border-radius: 50%;
 }
 
@@ -62,12 +78,31 @@ body {
     background: #EAF1FB;
     max-width: 720px;
     border-radius: 50px;
+    height: 100%;
+}
+
+.gheader__input__search__mail div {
+    flex: 1;
+}
+
+.gheader__input__search__mail button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0 5px;
+    line-height: 0;
+}
+
+.gheader__input__search__mail button svg {
+    margin: 3px;
 }
 
 .gheader__input__section {
     flex: 1;
     padding-right: 30px;
     padding-left: 10px;
+    height: 100%;
 }
 
 /* gheader end */
@@ -87,10 +122,14 @@ body {
 }
 
 .main__body__content {
-    height: 80vh;
     overflow-y: scroll;
     margin-bottom: 40px;
     padding-bottom: 40px;
+    height: 100%;
+}
+
+.main__body__content>div {
+    height: 56px;
 }
 
 .main__body header .main__body__header__left {
@@ -98,11 +137,11 @@ body {
     justify-content: space-between;
     height: 48px;
     align-items: center;
-    margin: 0 16px 0 0 ;
+    margin: 0 16px 0 0;
     padding: 0 16px 0 16px;
 }
-.main__body__header__left
-.main__body__content>div {
+
+.main__body__header__left .main__body__content>div {
     height: 56px;
     display: flex;
 }
@@ -116,6 +155,7 @@ body {
     display: flex;
     height: 100%;
     align-items: center;
+    border-bottom: 1px solid #EFEEF4;
 }
 
 .main__body__table tbody td {
@@ -129,16 +169,45 @@ body {
     flex: 1;
 }
 
-.main__body__table tbody td::after {
+.activeColor {
+    color: #0b57d0;
+}
+
+.activeBg {
+    background-color: #E0E9F7;
+    color: #001d35;
+    font-weight: 700;
+}
+
+.activeBg:hover {
+    background-color: #E0E9F7;
+}
+
+.inactive {
+    color: #444746;
+
+}
+
+.main__body__table table tr span {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.active::after {
+    background: #0b57d0;
+    border-radius: 2px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    bottom: 0;
     content: "";
     display: block;
-    position: absolute;
-    background: blue;
     height: 3px;
-    width: 90%;
-    bottom: 0;
-    border-radius: 2px
+    left: 0;
+    margin: 0 8px;
+    position: absolute;
+    right: 0;
 }
+
 
 .main__body__table tbody td:hover {
     background-color: #F4F4F4;
@@ -147,6 +216,7 @@ body {
 .main__body__table tbody td div {
     display: flex;
     align-items: center;
+    flex: 1;
 }
 
 .main__body__table tbody td div img {
@@ -155,48 +225,98 @@ body {
     margin: 0 16px;
 }
 
-.main__body__table tbody td div span {
-    font-size: 14px;
-    color: #444746;
-    font-weight: 500;
-}
-
-.main__body__table tr td .new__msg {
-    background-color: #e37400;
-    font-size: .75rem;
-    letter-spacing: normal;
-    color: #fff;
-    font-weight: 500;
-    height: 16px;
-    line-height: 16px;
-}
-
 .main__body__mail table {
     width: 100%;
     padding-bottom: 74px;
+    position: relative;
 }
 
 .main__body__mail table tbody {
     display: flex;
     flex-direction: column;
+    padding-right: 2px;
+}
+
+.main__body__mail table tbody .check {
+    padding: 0px 10px 0px 13px;
+}
+
+.main__body__mail .date {
+    padding-right: 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .main__body__mail__msg {
     color: #5F6368;
 }
 
+.download--pdf {
+    color: #5f6368;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 30px;
+    padding: 0 12px;
+    margin-right: 8px;
+    max-width: 160px;
+    min-width: 64px;
+    border: 1px solid #EAE5EA;
+    border-radius: 15px;
+    align-items: center;
+    box-shadow: inset 0 0 0 1px rgba(100, 121, 143, 0.302);
+    margin-bottom: 3px;
+    margin-left: 2px;
+    margin-top: 7px;
+}
+
+.download--pdf>img {
+    height: 16px !important;
+    width: 16px !important;
+    margin-right: 8px;
+}
+
 .main__body__mail table tbody tr {
     width: 100%;
     background: #F2F6FC;
-    border-top: 1px solid green;
-    border-bottom: 1px solid;
     padding-bottom: 10px;
     padding-top: 10px;
+    display: flex;
+    border-bottom: 1px solid #EFEEF4;
+    cursor: pointer;
+    font-size: 14px;
+    align-items: center;
+}
+
+.main__body__mail table tbody tr:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.main__body__mail table tbody tr>div {
+    flex: 1;
+}
+
+.main__body__mail table tbody tr>div>div {
+    display: flex;
+}
+
+.main__body__mail table tbody tr>div>div .read {
+    flex: 1;
 }
 
 .main__body__mail tr td img {
     height: 20px;
     width: 20px;
+}
+
+.main__body__mail .read {
+    flex: 1;
+}
+
+.main__body__mail table tbody tr td {
+    padding-right: 10px;
 }
 
 .nav__left {
@@ -218,6 +338,19 @@ body {
     min-width: 96px;
 }
 
+.main__body__hide {
+    display: none;
+}
+
+.main__body__block {
+    display: block;
+    position: absolute;
+    right: 0;
+    background-color: #F2F6FC;
+    z-index: 99;
+    margin-right: 4px;
+}
+
 .nav__left__compo {
     align-items: center;
     display: -webkit-box;
@@ -227,6 +360,14 @@ body {
     height: 56px;
     margin: 16px 0 16px;
     padding: 0 0 0 8px;
+}
+
+.nav__left__compo>div {
+    border-radius: 16px;
+    color: #001d35;
+    height: 56px;
+    padding: 0 24px 0 0;
+    min-width: 96px;
 }
 
 .nav__left .nav__left__list::-webkit-scrollbar {
@@ -240,17 +381,15 @@ body {
 
 .nav__left .nav__left__list {
     overflow: scroll;
-    height: 70vh;
+    height: 88vh;
 
 }
 
+
 .nav__left__list {
     line-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     list-style: none;
+    position: relative;
 
 }
 
@@ -261,6 +400,12 @@ body {
 
 .nav__left__list>div {
     width: 100%;
+}
+
+.nav__left__list .less {
+    padding: 0 12px 0 26px;
+    display: flex;
+    align-items: center;
 }
 
 .nav__left__user {
@@ -283,6 +428,7 @@ body {
     height: 20px;
     width: 20px;
     display: flex;
+    margin-right: 20px;
 }
 
 .nav__left__user__icon img {
