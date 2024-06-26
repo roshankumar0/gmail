@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Main = ({ navhide,handleCompose }) => {
+const Main = ({ navhide, handleCompose }) => {
   let data = [
 
     {
@@ -241,37 +241,30 @@ const Main = ({ navhide,handleCompose }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [currentBorder, setCurrentBorder] = useState(0)
   const [showAll, setShowAll] = useState(false);
-  const [messages, setMessage] = useState(0)
-  const [star, setStar] = useState(0)
+  const [messages, setMessage] = useState(0);
   const handleCurretBorder = (index) => {
     setCurrentBorder(index)
   }
 
   const handleMoreClick = () => {
     setShowAll(!showAll);
+    console.log('object')
   };
   const handleInbox = (item, index) => {
     setCurrentIndex(index);
-    console.log(item)
+   
   };
   const itemsToShow = showAll ? data : data.slice(0, 5);
-  const handleHover = (index) => {
-    setMessage(index)
-    console.log(index)
-  }
-  const handleSelectStar = (index) => {
-    setStar(index)
-    setStar(!star)
-  }
+
   return (
     <main id='gbody__container'>
       <div className='gcontainer'>
         <aside className={`${navhide ? "nav__left" : "navwidth"}`}>
           <div>
             <div className='nav__left__compo' onClick={handleCompose}>
-              <div>
-                <div className='nav__left__compose'><img src="https://gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png" alt="" />{navhide && <span>compose</span>}</div>
-              </div>
+              <div className='nav__left__compose'>
+                <img src="https://gstatic.com/images/icons/material/system_gm/2x/create_black_24dp.png" alt="" />
+                {navhide && <span>compose</span>}</div>
             </div>
             <div className='nav__left__list'>
               {itemsToShow.map((item, index) => (
@@ -312,7 +305,7 @@ const Main = ({ navhide,handleCompose }) => {
                     <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
                   </a>
                 </div>
-                <div>
+                <div className='message--count'>
                   <span>
                     <span>1</span> - <span>13</span>
                     of
@@ -351,33 +344,25 @@ const Main = ({ navhide,handleCompose }) => {
                 <tbody>
                   {
                     allMessages.map((message, index) => {
-                      return <tr onMouseEnter={() => handleHover(index)}
-                        onMouseLeave={() => handleHover(null)}
+                      return <tr
                       >
-                        {
-                          messages === index ?
-                            (<>
-                              <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
-                              <td>
-                                <img onClick={() => handleSelectStar(index)} src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
-                                {star === index ? <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> : <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" />}
-                              </td>
-                              <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td></>)
-                            :
-                            (<>
-                              <td className='check'><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/check_box_outline_blank_baseline_nv700_20dp.png" alt="" /></td>
-                              <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_baseline_nv700_20dp.png" alt="" /></td>
-                              <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
-                            </>)
-                        }
+                        <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
+                        <td>
+                          <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
+                          <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" />
+                        </td>
+                        <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
 
                         <td><span>{message.companyName}</span></td>
                         <td className='read'>
                           <div >
-                            <span>{message.shortMessage}</span>
-                            <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
+                            <div>
+                              <span>{message.shortMessage}</span>
+                              <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
+                            </div>
                             {
-                              message.pdf && message.pdfNumber && <div className='download--pdf'>
+                              message.pdf && message.pdfNumber &&
+                              <div className='download--pdf'>
                                 <img src={message.pdf} alt="" />
                                 <span>{message.pdfNumber.slice(0, 12)}...</span>
                               </div>
@@ -403,17 +388,16 @@ const Main = ({ navhide,handleCompose }) => {
             </div>
           </div>
         </main>
-        <aside >
-          <div className='nav__right' >
+        <aside className='nav__right' >
+          <div >
             <div className='nav__right__list'>
-              <img src="https://gstatic.com/companion/icon_assets/calendar_2020q4_2x.png" alt="" />
-              <img src="https://www.gstatic.com/companion/icon_assets/keep_2020q4v3_2x.png" alt="" />
-              <img src="https://gstatic.com/companion/icon_assets/tasks_2021_2x.png" alt="" />
-              <img src="https://gstatic.com/companion/icon_assets/contacts_2022_2x.png" alt="" />
-              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/add/v21/black-24dp/1x/gm_add_black_24dp.png" alt="" />
+              <div><img src="https://gstatic.com/companion/icon_assets/calendar_2020q4_2x.png" alt="" /></div>
+              <div><img src="https://www.gstatic.com/companion/icon_assets/keep_2020q4v3_2x.png" alt="" /></div>
+              <div><img src="https://gstatic.com/companion/icon_assets/tasks_2021_2x.png" alt="" /></div>
+              <div><img src="https://gstatic.com/companion/icon_assets/contacts_2022_2x.png" alt="" /></div>
             </div>
-            <div>
-              <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/expand_less_baseline_nv700_20dp.png" alt="" />
+            <div className='plus'>
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/add/v21/black-24dp/1x/gm_add_black_24dp.png" alt="" />
             </div>
           </div>
         </aside>
