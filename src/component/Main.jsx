@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Main = () => {
+const Main = ({ navhide,handleCompose }) => {
   let data = [
 
     {
@@ -266,28 +266,28 @@ const Main = () => {
   return (
     <main id='gbody__container'>
       <div className='gcontainer'>
-        <aside className='nav__left'>
+        <aside className={`${navhide ? "nav__left" : "navwidth"}`}>
           <div>
-            <div className='nav__left__compo'>
+            <div className='nav__left__compo' onClick={handleCompose}>
               <div>
-                <div className='nav__left__compose'><img src="https://gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png" alt="" /><span>compose</span></div>
+                <div className='nav__left__compose'><img src="https://gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png" alt="" />{navhide && <span>compose</span>}</div>
               </div>
             </div>
             <div className='nav__left__list'>
               {itemsToShow.map((item, index) => (
                 <div
                   key={index}
-                  className={`nav__left__user ${currentIndex === index ? "activeBg" : ""}`}
+                  className={`${navhide ? "nav__left__user" : "active--left--icon"} ${currentIndex === index ? "activeBg" : ""}`}
                   onClick={() => handleInbox(item, index)}
                 >
-                  <span className='nav__left__user__icon'>
+                  <span className={`${navhide ? "nav__left__user__icon" : "active--img--margin"}`}>
                     {currentIndex === index ? <img src={item.activeIcon} alt="" /> : <img src={item.icon} alt="" />}
                   </span>
-                  <span>{item.text}</span>
+                  <span>{navhide && item.text}</span>
                 </div>
               ))}
-              {!showAll && (<div onClick={handleMoreClick(!showAll)} className='nav__left__user'>
-                <span className='nav__left__user__icon'>
+              {!showAll && (<div onClick={handleMoreClick(!showAll)} className={`${navhide ? "nav__left__user" : "active--left--icon"}`}>
+                <span className={`${navhide ? "nav__left__user__icon" : "active--img--margin"}`}>
                   <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/expand_more_baseline_nv700_20dp.png" alt="" />
                 </span>
                 <span >{showAll ? "Less" : "More"}</span>
@@ -403,15 +403,15 @@ const Main = () => {
             </div>
           </div>
         </main>
-        <aside className='nav__right'>
-          <div >
-            <ul className='nav__left__list'>
-              <li><img src="https://gstatic.com/companion/icon_assets/calendar_2020q4_2x.png" alt="" /></li>
-              <li><img src="https://www.gstatic.com/companion/icon_assets/keep_2020q4v3_2x.png" alt="" /></li>
-              <li><img src="https://gstatic.com/companion/icon_assets/tasks_2021_2x.png" alt="" /></li>
-              <li><img src="https://gstatic.com/companion/icon_assets/contacts_2022_2x.png" alt="" /></li>
-              <li><img src="https://fonts.gstatic.com/s/i/googlematerialicons/add/v21/black-24dp/1x/gm_add_black_24dp.png" alt="" /></li>
-            </ul>
+        <aside >
+          <div className='nav__right' >
+            <div className='nav__right__list'>
+              <img src="https://gstatic.com/companion/icon_assets/calendar_2020q4_2x.png" alt="" />
+              <img src="https://www.gstatic.com/companion/icon_assets/keep_2020q4v3_2x.png" alt="" />
+              <img src="https://gstatic.com/companion/icon_assets/tasks_2021_2x.png" alt="" />
+              <img src="https://gstatic.com/companion/icon_assets/contacts_2022_2x.png" alt="" />
+              <img src="https://fonts.gstatic.com/s/i/googlematerialicons/add/v21/black-24dp/1x/gm_add_black_24dp.png" alt="" />
+            </div>
             <div>
               <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/expand_less_baseline_nv700_20dp.png" alt="" />
             </div>

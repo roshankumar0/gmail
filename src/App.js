@@ -7,7 +7,17 @@ import Carousel from './component/Carousel';
 import Gmailheader from './component/Gmailheader';
 import './component/gmailcss.css'
 import Main from './component/Main';
+import { useState } from 'react';
+import Compose from './component/Compose';
 function App() {
+  const [navhide, setNavHide] = useState(true)
+  const [compose, setCompose] = useState(false)
+  const hamburger = () => {
+    setNavHide(!navhide)
+  }
+  const handleCompose = () => {
+    setCompose(!compose)
+  }
   return (
     <div className="athen">
       {/* <Announcement />
@@ -16,8 +26,9 @@ function App() {
       </div> */}
       {/* <Featured/> */}
       {/* <Carousel/> */}
-      <Gmailheader />
-      <Main />
+      <Gmailheader hamburger={hamburger} />
+      <Main navhide={navhide} handleCompose={handleCompose} />
+      {compose && <Compose />}
     </div>
   );
 }
