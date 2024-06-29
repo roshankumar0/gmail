@@ -242,6 +242,9 @@ const Main = ({ navhide, handleCompose }) => {
   const [currentBorder, setCurrentBorder] = useState(0)
   const [showAll, setShowAll] = useState(false);
   const [messages, setMessage] = useState(0);
+  const [emailData, setEmailData] = useState(allMessages)
+
+  console.log(emailData)
   const handleCurretBorder = (index) => {
     setCurrentBorder(index)
   }
@@ -252,10 +255,18 @@ const Main = ({ navhide, handleCompose }) => {
   };
   const handleInbox = (item, index) => {
     setCurrentIndex(index);
-   
+
   };
   const itemsToShow = showAll ? data : data.slice(0, 5);
-
+  const handleDelete = (indexToDelete) => {
+    const itemToDelete = emailData.find((_, index) => index === indexToDelete);
+    if (itemToDelete) {
+      setEmailData((prevEmailData) =>
+        prevEmailData.filter((_, index) => index !== indexToDelete)
+      );
+    }
+    console.log(emailData)
+  };
   return (
     <main id='gbody__container'>
       <div className='gcontainer'>
@@ -264,7 +275,7 @@ const Main = ({ navhide, handleCompose }) => {
             <div className='nav__left__compo' onClick={handleCompose}>
               <div className='nav__left__compose'>
                 <img src="https://gstatic.com/images/icons/material/system_gm/2x/create_black_24dp.png" alt="" />
-                {navhide && <span>compose</span>}</div>
+                {navhide && <span>Compose</span>}</div>
             </div>
             <div className='nav__left__list'>
               {itemsToShow.map((item, index) => (
@@ -293,17 +304,23 @@ const Main = ({ navhide, handleCompose }) => {
           <header>
             <div className='main__body__header'>
               <div className='main__body__header__left'>
-                <div>
-                  <a href="#">
-                    <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
-                    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
-                  </a>
+                <div className='left--checkbox'>
+                  <span>
+                    <a href="#">
+                      <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
+                    </a>
+                  </span>
+                  <span>
+                    <a href="#">
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
+                    </a>
+                  </span>
+                  <span>
+                    <a href="#">
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
+                    </a>
+                  </span>
                 </div>
                 <div className='message--count'>
                   <span>
@@ -343,9 +360,8 @@ const Main = ({ navhide, handleCompose }) => {
               <table>
                 <tbody>
                   {
-                    allMessages.map((message, index) => {
-                      return <tr
-                      >
+                    emailData.map((message, index) => {
+                      return <tr className={`${index === 0 ? "main__tr-btop" : ""}`} onClick={() => handleDelete(index)} key={index}>
                         <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
                         <td>
                           <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
@@ -353,7 +369,7 @@ const Main = ({ navhide, handleCompose }) => {
                         </td>
                         <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
 
-                        <td><span>{message.companyName}</span></td>
+                        <td className='company--name'><span>{message.companyName}</span></td>
                         <td className='read'>
                           <div >
                             <div>
