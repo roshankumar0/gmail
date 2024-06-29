@@ -300,110 +300,134 @@ const Main = ({ navhide, handleCompose }) => {
             </div>
           </div>
         </aside>
-        <main className='main__body'>
-          <header>
-            <div className='main__body__header'>
-              <div className='main__body__header__left'>
-                <div className='left--checkbox'>
-                  <span>
-                    <a href="#">
-                      <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
-                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
-                    </a>
-                  </span>
-                  <span>
-                    <a href="#">
-                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
-                    </a>
-                  </span>
-                  <span>
-                    <a href="#">
-                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
-                    </a>
-                  </span>
+        <div>
+          <div className='main__body'>
+            <header>
+              <div className='main__body__header'>
+                <div className='main__body__header__left'>
+                  <div className='left--checkbox'>
+                    <span>
+                      <a href="#">
+                        <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
+                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
+                      </a>
+                    </span>
+                    <span>
+                      <a href="#">
+                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
+                      </a>
+                    </span>
+                    <span>
+                      <a href="#">
+                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
+                      </a>
+                    </span>
+                  </div>
+                  <div className='message--count'>
+                    <div className='total'>
+                      <span>
+                        <span>1</span> - <span>13</span>
+                        of
+                        <span>13</span>
+                      </span>
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
+                    </div>
+                    <div className='keyboard'>
+                    <i className="fa fa-keyboard-o" style={{fontSize:"14px"}}></i>
+                    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
+                    </div>
+                  </div>
                 </div>
-                <div className='message--count'>
-                  <span>
-                    <span>1</span> - <span>13</span>
-                    of
-                    <span>13</span>
-                  </span>
-                  <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
-                  <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
+              </div>
+            </header>
+            <div className='main__body__content'>
+              <div>
+                <table className='main__body__table'>
+                  <tbody>
+                    <tr>
+                      {headerMenu.map((header, index) => (
+                        <td
+                          key={index}
+                          onClick={() => handleCurretBorder(index)}
+                          className={currentBorder === index ? 'active' : 'inactive'}
+                        >
+                          <div>
+                            {currentBorder === index ? <img src={header.activeIcon} alt="" /> : <img src={header.icon} alt="" />}
+
+                            <span className={currentBorder === index ? "activeColor" : "inactive"}>{header.text}</span>
+                          </div>
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className='main__body__mail'>
+                <table>
+                  <tbody>
+                    {
+                      emailData.map((message, index) => {
+                        return <tr className={`${index === 0 ? "main__tr-btop" : ""}`} onClick={() => handleDelete(index)} key={index}>
+                          <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
+                          <td>
+                            <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
+                            {/* <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> */}
+                          </td>
+                          <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
+
+                          <td className='company--name'><span>{message.companyName}</span></td>
+                          <td className='read'>
+                            <div >
+                              <div>
+                                <span>{message.shortMessage}</span>
+                                <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
+                              </div>
+                              {
+                                message.pdf && message.pdfNumber &&
+                                <div className='download--pdf'>
+                                  <img src={message.pdf} alt="" />
+                                  <span>{message.pdfNumber.slice(0, 12)}...</span>
+                                </div>
+                              }
+                            </div>
+                          </td>
+                          <td>
+                            <span className='date'>{message.date}</span>
+                          </td>
+                          <td className={`${messages === index ? "main__body__block" : "main__body__hide"}`}>
+                            <div className='date'>
+                              <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/archive_baseline_nv700_20dp.png" alt="" />
+                              <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/delete_baseline_nv700_20dp.png" alt="" />
+                              <svg viewBox="0 -960 960 960" height="20" width="20" focusable="false" className="T-I-J3 J-J5-Ji kQ9Vzb aoH"><path d="M168-192q-29.7,0-50.85-21.16T96-264.04V-696.28Q96-726 117.15-747T168-768H553q-2,17-1,35.5t6,36.5H168L480-517l140-81q14,13 37,24t41,16L480-432L168-611v347H792V-558.46q20-4.54 37.5-14.04T864-594v329.77Q864-234 842.5-213T792-192H168Zm0-504v432V-696Zm576,72q-50,0-85-35t-35-85t35-85t85-35t85,35t35,85t-35,85t-85,35Z"></path></svg>
+                              <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/schedule_black_20dp.png" alt="" />
+                            </div>
+                          </td>
+                        </tr>
+                      })
+                    }
+                  </tbody>
+                </table>
+                <div className='footer--memory'>
+                  <div className='storage'>
+                    <div className='range'>
+                      <div className='used'></div>
+                    </div>
+                    <div className='percentage'>
+                      <div className="aiD "><span dir="ltr">14.94 GB</span> of <span dir="ltr">15 GB</span> <span dir="ltr"> (99%) </span> used</div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="about"><a href="https://www.google.com/intl/en/policies/terms/" target="_blank" className="l9">Terms</a> · <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" className="l9">Privacy</a> · <a href="https://www.google.com/gmail/about/policy/" target="_blank" className="l9">Program Policies</a> </div>
+                  </div>
+                  <div>
+                    <div className="activy"><div>Last account activity: 4 hours ago</div><span id=":9c" className="l8 LJOhwe" tabIndex="0" role="link">Details</span></div>
+                  </div>
                 </div>
               </div>
             </div>
-          </header>
-          <div className='main__body__content'>
-            <div>
-              <table className='main__body__table'>
-                <tbody>
-                  <tr>
-                    {headerMenu.map((header, index) => (
-                      <td
-                        key={index}
-                        onClick={() => handleCurretBorder(index)}
-                        className={currentBorder === index ? 'active' : 'inactive'}
-                      >
-                        <div>
-                          {currentBorder === index ? <img src={header.activeIcon} alt="" /> : <img src={header.icon} alt="" />}
-
-                          <span className={currentBorder === index ? "activeColor" : "inactive"}>{header.text}</span>
-                        </div>
-                      </td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className='main__body__mail'>
-              <table>
-                <tbody>
-                  {
-                    emailData.map((message, index) => {
-                      return <tr className={`${index === 0 ? "main__tr-btop" : ""}`} onClick={() => handleDelete(index)} key={index}>
-                        <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
-                        <td>
-                          <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
-                          <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" />
-                        </td>
-                        <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
-
-                        <td className='company--name'><span>{message.companyName}</span></td>
-                        <td className='read'>
-                          <div >
-                            <div>
-                              <span>{message.shortMessage}</span>
-                              <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
-                            </div>
-                            {
-                              message.pdf && message.pdfNumber &&
-                              <div className='download--pdf'>
-                                <img src={message.pdf} alt="" />
-                                <span>{message.pdfNumber.slice(0, 12)}...</span>
-                              </div>
-                            }
-                          </div>
-                        </td>
-                        <td>
-                          <span className='date'>{message.date}</span>
-                        </td>
-                        <td className={`${messages === index ? "main__body__block" : "main__body__hide"}`}>
-                          <div className='date'>
-                            <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/archive_baseline_nv700_20dp.png" alt="" />
-                            <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/delete_baseline_nv700_20dp.png" alt="" />
-                            <svg viewBox="0 -960 960 960" height="20" width="20" focusable="false" className="T-I-J3 J-J5-Ji kQ9Vzb aoH"><path d="M168-192q-29.7,0-50.85-21.16T96-264.04V-696.28Q96-726 117.15-747T168-768H553q-2,17-1,35.5t6,36.5H168L480-517l140-81q14,13 37,24t41,16L480-432L168-611v347H792V-558.46q20-4.54 37.5-14.04T864-594v329.77Q864-234 842.5-213T792-192H168Zm0-504v432V-696Zm576,72q-50,0-85-35t-35-85t35-85t85-35t85,35t35,85t-35,85t-85,35Z"></path></svg>
-                            <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/schedule_black_20dp.png" alt="" />
-                          </div>
-                        </td>
-                      </tr>
-                    })
-                  }
-                </tbody>
-              </table>
-            </div>
           </div>
-        </main>
+        </div>
         <aside className='nav__right' >
           <div >
             <div className='nav__right__list'>

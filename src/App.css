@@ -103,6 +103,12 @@ html {
     unicode-range: U+0308, U+0530-058F, U+2010, U+2024, U+25CC, U+FB13-FB17;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Google Sans', sans-serif;
     background-color: #f6f8fc;
@@ -151,11 +157,19 @@ body {
 .gheader__allapp {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    width: 90px;
 }
 
 .gheader__allapp__icon {
     height: 24px;
     width: 24px;
+}
+
+.gheader__allapp div a {
+    padding: 4px;
+    height: 40px;
 }
 
 .gheader__input__search {
@@ -220,6 +234,27 @@ body {
     height: 100%;
 }
 
+.gheader__input__setting {
+    display: flex;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.gheader__input__setting a {
+    width: 44px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.gheader__input__setting a svg,
+.gheader__allapp a svg {
+    fill: #5f6368;
+}
+
 /* gheader end */
 /* gcontainer start */
 .gcontainer {
@@ -231,12 +266,8 @@ body {
 }
 
 .main__body {
-    flex: 1;
-    background-color: #F2F6FC;
-    /* background-color: red; */
-    border-radius: 10px;
-    margin-bottom: 40px;
-    padding: 0;
+    background-color: white;
+    border-radius: 16px;
 }
 
 .main__body__content {
@@ -245,8 +276,15 @@ body {
     padding-bottom: 40px;
     height: 100%;
     font-size: var(--font-size-medium);
-    overflow-y: scroll;
     height: 610px;
+    scrollbar-color: #E3E4E5 #fff;
+}
+
+.main__body__content::-webkit-scrollbar-thumb {
+    background-color: red;
+    width: 8px;
+    background: #828487;
+    border-radius: 10px;
 }
 
 .main__body__content>div {
@@ -276,8 +314,6 @@ body {
     font-size: var(--font-size-small);
     color: #5E5E5E;
     font-weight: 400;
-    border-radius: 10x 10px 0px 0px;
-    background-color: white;
 }
 
 .main__body__header__left .main__body__content>div {
@@ -285,7 +321,32 @@ body {
     display: flex;
 }
 
+.main__body__header__left .keyboard img {
+    width: 100%;
+    height: 100%;
+}
+
 .message--count {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.message--count .total {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    height: 100%;
+}
+
+.message--count .total span {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.message--count .total .keyboard {
     display: flex;
     align-items: center;
 }
@@ -379,8 +440,6 @@ body {
 }
 
 .main__body__mail table {
-    width: 100%;
-    padding-bottom: 74px;
     position: relative;
 }
 
@@ -488,6 +547,53 @@ body {
 
 .main__body__mail table tbody tr td {
     padding-right: var(--padding-size-10);
+}
+
+.footer--memory {
+    padding: 0px 16px;
+    margin: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    color: #5f6368;
+}
+
+.footer--memory>div {
+    flex: 1;
+
+}
+
+.footer--memory .storage {
+    height: 6px;
+}
+
+.footer--memory .storage .range {
+    background-color: rgb(95, 99, 104);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.footer--memory .storage .used {
+    width: 99%;
+    background-color: #d93025;
+    height: 100%;
+}
+
+.footer--memory .about {
+    display: flex;
+    justify-content: center;
+}
+
+.footer--memory .about a {
+    color: #666666;
+    text-decoration: none;
+}
+
+.footer--memory .activity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .nav__left {
@@ -668,7 +774,8 @@ body {
 }
 
 aside.nav__right::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
+
 }
 
 /* gcompose start  */
