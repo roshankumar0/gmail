@@ -300,7 +300,7 @@ const Main = ({ navhide, handleCompose }) => {
             </div>
           </div>
         </aside>
-        <div>
+        <div className='gbody--container--message'>
           <div className='main__body'>
             <header>
               <div className='main__body__header'>
@@ -334,7 +334,7 @@ const Main = ({ navhide, handleCompose }) => {
                       <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
                     </div>
                     <div className='keyboard'>
-                    <i className="fa fa-keyboard-o" style={{fontSize:"14px"}}></i>
+                    <i className="fa fa-keyboard-o" style={{fontSize:"16px"}}></i>
                     <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
                     </div>
                   </div>
@@ -421,7 +421,7 @@ const Main = ({ navhide, handleCompose }) => {
                     <div className="about"><a href="https://www.google.com/intl/en/policies/terms/" target="_blank" className="l9">Terms</a> · <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" className="l9">Privacy</a> · <a href="https://www.google.com/gmail/about/policy/" target="_blank" className="l9">Program Policies</a> </div>
                   </div>
                   <div>
-                    <div className="activy"><div>Last account activity: 4 hours ago</div><span id=":9c" className="l8 LJOhwe" tabIndex="0" role="link">Details</span></div>
+                    <div className="activity"><div>Last account activity: 4 hours ago</div><span id=":9c" className="l8 LJOhwe" tabIndex="0" role="link">Details</span></div>
                   </div>
                 </div>
               </div>
