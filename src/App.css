@@ -192,7 +192,7 @@ body {
     outline: none;
     font-size: var(--font-size-large);
     margin-top: 1px;
-    margin-left: -9px;
+    margin-left: -7px;
 }
 
 .gheader__profile {
@@ -233,6 +233,7 @@ body {
 
 .gheader__input__search__mail button svg {
     margin: 3px;
+    fill: #444746;
 }
 
 .gheader__input__section {
@@ -286,13 +287,16 @@ body {
 
 .main__body__content {
     overflow-y: scroll;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
     height: 100%;
     font-size: var(--font-size-medium);
     height: 610px;
     scrollbar-color: #E3E4E5 #fff;
-    /* background-color: #F2F6FC; */
+   
+}
+
+
+.main__body__content .inbox--header {
+    margin: 10px 0px 0px 0px;
 }
 
 .left--checkbox {
@@ -343,6 +347,7 @@ body {
     align-items: center;
     margin-left: 10px;
     height: 100%;
+    margin-right: 22px;
 }
 
 .message--count .total span {
@@ -350,6 +355,10 @@ body {
     height: 100%;
     align-items: center;
     padding: 0 8px;
+}
+
+.message--count .total .left--icon {
+    margin-right: 18px;
 }
 
 .message--count .keyboard {
@@ -439,6 +448,7 @@ body {
     display: flex;
     align-items: center;
     flex: 1;
+    margin-bottom: 3px;
 }
 
 .main__body__table tbody td div img {
@@ -450,6 +460,7 @@ body {
 .main__body__mail table {
     position: relative;
     width: 100%;
+    background-color: #F2F6FC;
 }
 
 .main__body__mail table tbody {
@@ -457,12 +468,15 @@ body {
     flex-direction: column;
     padding-right: var(--padding-size-2);
     color: var(--color-table-text);
-    background-color: #F2F6FC;
 }
 
 .company--name {
-    flex-basis: 168px;
-    max-width: 168px;
+    flex-basis: 208px;
+    max-width: 208px;
+}
+
+.main__body__mail .text {
+    display: flex;
 }
 
 .main__body__mail table tbody .check {
@@ -479,6 +493,7 @@ body {
 
 .main__body__mail__msg {
     color: #5F6368;
+    margin-left: 8px;
 }
 
 .download--pdf {
@@ -508,7 +523,6 @@ body {
 
 .main__body__mail table tbody tr {
     width: 100%;
-    /* background: #F2F6FC; */
     padding-bottom: var(--padding-size-10);
     padding-top: var(--padding-size-10);
     display: flex;
@@ -517,6 +531,7 @@ body {
     font-size: var(--font-size-medium);
     -webkit-box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.12);
     box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.12);
+    border: none;
 }
 
 .main__tr-btop {
@@ -524,8 +539,7 @@ body {
 }
 
 .main__body__mail table tbody tr:hover {
-    /* background-color: red; */
-    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    box-shadow: inset -1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
     z-index: 2;
 }
 
@@ -628,7 +642,7 @@ body {
     height: 56px;
     cursor: pointer;
     width: 142px;
-    padding-right: 20px;
+    padding-right: 24px;
 }
 
 .nav__left__compose:hover {
@@ -639,7 +653,6 @@ body {
 .nav__left__compose span {
     font-weight: 500;
     color: #001d35;
-    letter-spacing: .8px;
 }
 
 .nav__left__compose img {
@@ -800,6 +813,11 @@ aside.nav__right::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 16px;
+}
+
+.nav__right .plus img {
+    width: 20px;
 }
 
 /* gcompose start  */

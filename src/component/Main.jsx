@@ -330,11 +330,11 @@ const Main = ({ navhide, handleCompose }) => {
                         of
                         <span>13</span>
                       </span>
-                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
+                      <img className='left--icon' src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
                       <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
                     </div>
                     <div className='keyboard'>
-                    <i className="fa fa-keyboard-o" style={{fontSize:"16px"}}></i>
+                    <i className="fa fa-keyboard-o" style={{fontSize:"16px",marginTop:"7px"}}></i>
                     <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
                     </div>
                   </div>
@@ -342,7 +342,7 @@ const Main = ({ navhide, handleCompose }) => {
               </div>
             </header>
             <div className='main__body__content'>
-              <div>
+              <div className='inbox--header'>
                 <table className='main__body__table'>
                   <tbody>
                     <tr>
@@ -379,8 +379,9 @@ const Main = ({ navhide, handleCompose }) => {
                           <td className='company--name'><span>{message.companyName}</span></td>
                           <td className='read'>
                             <div >
-                              <div>
+                              <div className='text'>
                                 <span>{message.shortMessage}</span>
+                                <span className='minus--icon'>-</span>
                                 <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
                               </div>
                               {
