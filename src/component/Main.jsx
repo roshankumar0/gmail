@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import Storage from './Storage'
 const Main = ({ navhide, handleCompose }) => {
   let data = [
 
@@ -103,7 +103,7 @@ const Main = ({ navhide, handleCompose }) => {
     },
     {
       icon: "https://ssl.gstatic.com/ui/v1/icons/mail/gm3/2x/forum_baseline_nv700_20dp.png",
-      text: "Forms",
+      text: "Forums",
       update: "1 new",
       company: "Phonepay",
       activeIcon: "https://ssl.gstatic.com/ui/v1/icons/mail/gm3/2x/forum_fill_baseline_p600_20dp.png"
@@ -112,14 +112,8 @@ const Main = ({ navhide, handleCompose }) => {
   let allMessages = [
     {
       companyName: "Ho.boiomni",
-      shortMessage: "BOI - MPIN expiry",
-      fullMessage: "Dear Customer, BOI - Your M-PIN is about to expire in 7 day(s). Kindly reset your M-PIN by accessing change M-PIN under profilesection. Thanks and Regards, Bank of India *****This is an Auto generated",
-      date: "17 Jun"
-    },
-    {
-      companyName: "noreply",
-      shortMessage: "",
-      fullMessage: "Your sign-in email was changed for project-117717475537",
+      shortMessage: "BOI – MPIN expiry",
+      fullMessage: " – Dear Customer, BOI – Your M-PIN is about to expire in 7 day(s). Kindly reset your M-PIN by accessing change M-PIN under profilesection. Thanks and Regards, Bank of India *****This is an Auto generated",
       date: "17 Jun"
     },
     {
@@ -138,105 +132,69 @@ const Main = ({ navhide, handleCompose }) => {
       date: "17 Jun"
     },
     {
-      companyName: "noreply.serviceonli.",
-      shortMessage: "RTPS-GAD Application Submission",
-      fullMessage: "प्रिय रोशन कुमार (Roshan Kumar), आपका आवेदन क्रo संo BICCO/2024/5932342 एवं निर्गत करने की संभावित तिथि 21/06/2024 है। सर्विसप्लस -बिहार सरकार",
-      date: "19 Jun"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
-    },
-    {
-      companyName: "Indira Gandhi Natio.",
-      shortMessage: "Remove Discrepancy",
-      fullMessage: "Dear ROSHAN KUMAR Registration Number :2470057143S While processing your application, the following discrepancies have been found: The uploaded self attested certificate(s) is/are not clear. Please re-",
-      date: "20 Jun",
-      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
+      companyName: "Ho.boiomni",
+      shortMessage: "BOI – MPIN expiry",
+      fullMessage: " – Dear Customer, BOI – Your M-PIN is about to expire in 7 day(s). Kindly reset your M-PIN by accessing change M-PIN under profilesection. Thanks and Regards, Bank of India *****This is an Auto generated",
+      date: "17 Jun"
     },
     {
       companyName: "noreply.serviceonli.",
-      shortMessage: "Delivery Email",
-      fullMessage: "प्रिय रोशन कुमार , आपके आवेदन क्रमांक संo BCCCO/2024/5554909 का प्रमाण-पत्र तैयार हो गया है और प्रमाण-पत्र यहाँ संलग्न है। इसे डाउनलोड कर उपयोग करें। धन्यवाद, सर्विसप्लस -बिहार सरकार",
-      date: "23 Jun",
-      pdf: "https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
-      pdfNumber: "2470057143S.pdf"
+      shortMessage: "Rejection Email",
+      fullMessage: "प्रिय पूजा कुमारी , आपका आवेदन क्रo संo BCCCO/2024/5634265 निम्नलिखित कारण से अस्वीकृत हो गया है: आवेदक के द्वारा आवेदन गलत किया गया है ..। सर्विसप्लस -बिहार सरकार",
+      date: "17 Jun"
+
     },
     {
-      companyName: "Admission 2024",
-      shortMessage: "Registration Advice",
-      fullMessage: "Dear Roshan Kumar, Your UserName is roshankumar0 and Password is sanjuverma01@@ for Online admission JULY-2024. You are advised to login at https://ignouadmission.samarth.edu.in/ and fill the online",
-      date: "31 May"
+      companyName: "Ebill",
+      shortMessage: "Your Bill Detail: 09.06.2024",
+      fullMessage: "Dear Customer,. Your Energy Bill for JUN-2024 is attached with this mail. In case you wish to receive the E-bill on an alternate. mail id, you can do so by: 1.Updating the alternate email id in My",
+      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
+      pdfNumber: "000401652585_2024_06.pdf",
+      date: "17 Jun"
     },
+    {
+      companyName: "Ho.boiomni",
+      shortMessage: "BOI – MPIN expiry",
+      fullMessage: " – Dear Customer, BOI – Your M-PIN is about to expire in 7 day(s). Kindly reset your M-PIN by accessing change M-PIN under profilesection. Thanks and Regards, Bank of India *****This is an Auto generated",
+      date: "17 Jun"
+    },
+    {
+      companyName: "noreply.serviceonli.",
+      shortMessage: "Rejection Email",
+      fullMessage: "प्रिय पूजा कुमारी , आपका आवेदन क्रo संo BCCCO/2024/5634265 निम्नलिखित कारण से अस्वीकृत हो गया है: आवेदक के द्वारा आवेदन गलत किया गया है ..। सर्विसप्लस -बिहार सरकार",
+      date: "17 Jun"
+
+    },
+    {
+      companyName: "Ebill",
+      shortMessage: "Your Bill Detail: 09.06.2024",
+      fullMessage: "Dear Customer,. Your Energy Bill for JUN-2024 is attached with this mail. In case you wish to receive the E-bill on an alternate. mail id, you can do so by: 1.Updating the alternate email id in My",
+      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
+      pdfNumber: "000401652585_2024_06.pdf",
+      date: "17 Jun"
+    },
+    {
+      companyName: "Ho.boiomni",
+      shortMessage: "BOI – MPIN expiry",
+      fullMessage: " – Dear Customer, BOI – Your M-PIN is about to expire in 7 day(s). Kindly reset your M-PIN by accessing change M-PIN under profilesection. Thanks and Regards, Bank of India *****This is an Auto generated",
+      date: "17 Jun"
+    },
+    {
+      companyName: "noreply.serviceonli.",
+      shortMessage: "Rejection Email",
+      fullMessage: "प्रिय पूजा कुमारी , आपका आवेदन क्रo संo BCCCO/2024/5634265 निम्नलिखित कारण से अस्वीकृत हो गया है: आवेदक के द्वारा आवेदन गलत किया गया है ..। सर्विसप्लस -बिहार सरकार",
+      date: "17 Jun"
+
+    },
+    {
+      companyName: "Ebill",
+      shortMessage: "Your Bill Detail: 09.06.2024",
+      fullMessage: "Dear Customer,. Your Energy Bill for JUN-2024 is attached with this mail. In case you wish to receive the E-bill on an alternate. mail id, you can do so by: 1.Updating the alternate email id in My",
+      pdf: "//ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x16.png",
+      pdfNumber: "000401652585_2024_06.pdf",
+      date: "17 Jun"
+    },
+
   ]
   const [currentIndex, setCurrentIndex] = useState(0)
   const [currentBorder, setCurrentBorder] = useState(0)
@@ -244,14 +202,14 @@ const Main = ({ navhide, handleCompose }) => {
   const [messages, setMessage] = useState(0);
   const [emailData, setEmailData] = useState(allMessages)
 
-  console.log(emailData)
+  // console.log(emailData)
   const handleCurretBorder = (index) => {
     setCurrentBorder(index)
   }
 
   const handleMoreClick = () => {
     setShowAll(!showAll);
-    console.log('object')
+    // console.log('object')
   };
   const handleInbox = (item, index) => {
     setCurrentIndex(index);
@@ -265,7 +223,7 @@ const Main = ({ navhide, handleCompose }) => {
         prevEmailData.filter((_, index) => index !== indexToDelete)
       );
     }
-    console.log(emailData)
+    // console.log(emailData)
   };
   return (
     <main id='gbody__container'>
@@ -306,82 +264,75 @@ const Main = ({ navhide, handleCompose }) => {
               <div className='main__body__header'>
                 <div className='main__body__header__left'>
                   <div className='left--checkbox'>
-                    <span>
-                      <a href="#">
-                        <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
-                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
-                      </a>
+                    <span className='left-checked--msg'>
+                      <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" />
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
                     </span>
                     <span>
-                      <a href="#">
-                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
-                      </a>
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/refresh_baseline_nv700_20dp.png" alt="" />
                     </span>
                     <span>
-                      <a href="#">
-                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
-                      </a>
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/more_vert_baseline_nv700_20dp.png" alt="" />
                     </span>
                   </div>
                   <div className='message--count'>
                     <div className='total'>
-                      <span>
-                        <span>1</span> - <span>13</span>
-                        of
-                        <span>13</span>
-                      </span>
-                      <img className='left--icon' src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
-                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
+                      <span><span>1 – 12  of 12 </span></span>
+                      <div className='lef-right-icon'>
+                        <img className='left--icon' src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_left_baseline_nv700_20dp.png" alt="" />
+                        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/chevron_right_baseline_nv700_20dp.png" alt="" />
+                      </div>
                     </div>
                     <div className='keyboard'>
-                    <i className="fa fa-keyboard-o" style={{fontSize:"16px",marginTop:"7px"}}></i>
-                    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
+                      <img style={{ width: "18px", height: "13px", marginTop: "4px" }} src={`https://w7.pngwing.com/pngs/224/523/png-transparent-computer-keyboard-laptop-keyboard-protector-tablet-computers-keyboard-pc-computer-keyboard-computer-laptop-thumbnail.png`} alt="keyboard" />
+                      <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/arrow_drop_down_baseline_nv700_20dp.png" alt="" />
                     </div>
                   </div>
                 </div>
               </div>
             </header>
             <div className='main__body__content'>
-              <div className='inbox--header'>
-                <table className='main__body__table'>
-                  <tbody>
-                    <tr>
-                      {headerMenu.map((header, index) => (
-                        <td
-                          key={index}
-                          onClick={() => handleCurretBorder(index)}
-                          className={currentBorder === index ? 'active' : 'inactive'}
-                        >
-                          <div>
-                            {currentBorder === index ? <img src={header.activeIcon} alt="" /> : <img src={header.icon} alt="" />}
+              <Storage />
+              <header className='inbox--header'>
+                <nav className='main__body__table'>
+                  <ul>
+                    {headerMenu.map((header, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleCurretBorder(index)}
+                        className={currentBorder === index ? 'active' : 'inactive'}
+                      >
+                        <div className='main__body__table__list'>
+                          {currentBorder === index ? <img src={header.activeIcon} alt="" /> : <img src={header.icon} alt="" />}
 
-                            <span className={currentBorder === index ? "activeColor" : "inactive"}>{header.text}</span>
-                          </div>
-                        </td>
-                      ))}
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                          <span className={currentBorder === index ? "activeColor" : "inactive"}>{header.text}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </header>
               <div className='main__body__mail'>
                 <table>
                   <tbody>
                     {
                       emailData.map((message, index) => {
                         return <tr className={`${index === 0 ? "main__tr-btop" : ""}`} onClick={() => handleDelete(index)} key={index}>
-                          <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
-                          <td>
-                            <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
-                            {/* <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> */}
-                          </td>
-                          <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
+                          <span style={{ display: 'flex', marginLeft: "1px" }}>
+                            <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
+                            <td>
+                              <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
+                              {/* <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> */}
+                            </td>
+                            <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
 
+                          </span>
                           <td className='company--name'><span>{message.companyName}</span></td>
                           <td className='read'>
                             <div >
                               <div className='text'>
                                 <span>{message.shortMessage}</span>
-                                <span className='minus--icon'>-</span>
+                                {/* <span className='minus--icon'>-</span> */}
                                 <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
                               </div>
                               {
@@ -396,14 +347,6 @@ const Main = ({ navhide, handleCompose }) => {
                           <td>
                             <span className='date'>{message.date}</span>
                           </td>
-                          <td className={`${messages === index ? "main__body__block" : "main__body__hide"}`}>
-                            <div className='date'>
-                              <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/archive_baseline_nv700_20dp.png" alt="" />
-                              <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/delete_baseline_nv700_20dp.png" alt="" />
-                              <svg viewBox="0 -960 960 960" height="20" width="20" focusable="false" className="T-I-J3 J-J5-Ji kQ9Vzb aoH"><path d="M168-192q-29.7,0-50.85-21.16T96-264.04V-696.28Q96-726 117.15-747T168-768H553q-2,17-1,35.5t6,36.5H168L480-517l140-81q14,13 37,24t41,16L480-432L168-611v347H792V-558.46q20-4.54 37.5-14.04T864-594v329.77Q864-234 842.5-213T792-192H168Zm0-504v432V-696Zm576,72q-50,0-85-35t-35-85t35-85t85-35t85,35t35,85t-35,85t-85,35Z"></path></svg>
-                              <img src="https://www.gstatic.com/images/icons/material/system_gm/1x/schedule_black_20dp.png" alt="" />
-                            </div>
-                          </td>
                         </tr>
                       })
                     }
@@ -416,6 +359,7 @@ const Main = ({ navhide, handleCompose }) => {
                     </div>
                     <div className='percentage'>
                       <div className="aiD "><span dir="ltr">14.94 GB</span> of <span dir="ltr">15 GB</span> <span dir="ltr"> (99%) </span> used</div>
+                      <img src="https://gstatic.com/images/icons/material/system_gm/1x/launch_gm_grey_18dp.png" alt="" />
                     </div>
                   </div>
                   <div>
