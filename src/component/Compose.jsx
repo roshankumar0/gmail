@@ -7,9 +7,9 @@ const Compose = () => {
                 <tbody>
                     <tr>
                         <td>
-                            <div>
+                            {/* <div>
                                 <h2><span>New Message</span></h2>
-                            </div>
+                            </div> */}
                         </td>
                         <td>
                             <img className="Hl" id=":a3" src="images/cleardot.gif" alt="Minimize" data-tooltip="Minimize" aria-label="Minimize" data-tooltip-delay="800" />

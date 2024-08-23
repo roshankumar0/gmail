@@ -313,45 +313,65 @@ const Main = ({ navhide, handleCompose }) => {
                 </nav>
               </header>
               <div className='main__body__mail'>
-                <table>
-                  <tbody>
-                    {
-                      emailData.map((message, index) => {
-                        return <tr className={`${index === 0 ? "main__tr-btop" : ""}`} onClick={() => handleDelete(index)} key={index}>
-                          <span style={{ display: 'flex', marginLeft: "1px" }}>
-                            <td className='check'><img src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png" alt="" /></td>
-                            <td>
-                              <img src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png" alt="" />
-                              {/* <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> */}
-                            </td>
-                            <td><img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png" alt="" /></td>
+              <table>
+  <tbody>
+    {
+      emailData.map((message, index) => {
+        return (
+          <tr
+            className={`${index === 0 ? "main__tr-btop" : ""}`}
+            onClick={() => handleDelete(index)}
+            key={index}
+          >
+            <td className='check'>
+              <img
+                src="https://www.gstatic.com/images/icons/material/system_gm/1x/check_box_outline_blank_black_20dp.png"
+                alt=""
+              />
+            </td>
+            <td>
+              <img
+                src="https://gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png"
+                alt=""
+              />
+              {/* <img src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/star_fill_googyellow500_20dp.png" alt="" /> */}
+            </td>
+            <td>
+              <img
+                src="https://ssl.gstatic.com/ui/v1/icons/mail/gm3/1x/label_important_baseline_nv700_20dp.png"
+                alt=""
+              />
+            </td>
+            <td className='company--name'>
+              <span>{message.companyName}</span>
+            </td>
+            <td className='read'>
+              <div>
+                <div className='text'>
+                  <span>{message.shortMessage}</span>
+                  {/* <span className='minus--icon'>-</span> */}
+                  <span className='main__body__mail__msg'>
+                    {message.fullMessage.slice(0, 102)}...
+                  </span>
+                </div>
+                {message.pdf && message.pdfNumber && (
+                  <div className='download--pdf'>
+                    <img src={message.pdf} alt="" />
+                    <span>{message.pdfNumber.slice(0, 12)}...</span>
+                  </div>
+                )}
+              </div>
+            </td>
+            <td>
+              <span className='date'>{message.date}</span>
+            </td>
+          </tr>
+        );
+      })
+    }
+  </tbody>
+</table>
 
-                          </span>
-                          <td className='company--name'><span>{message.companyName}</span></td>
-                          <td className='read'>
-                            <div >
-                              <div className='text'>
-                                <span>{message.shortMessage}</span>
-                                {/* <span className='minus--icon'>-</span> */}
-                                <span className='main__body__mail__msg'>{message.fullMessage.slice(0, 102)}...</span>
-                              </div>
-                              {
-                                message.pdf && message.pdfNumber &&
-                                <div className='download--pdf'>
-                                  <img src={message.pdf} alt="" />
-                                  <span>{message.pdfNumber.slice(0, 12)}...</span>
-                                </div>
-                              }
-                            </div>
-                          </td>
-                          <td>
-                            <span className='date'>{message.date}</span>
-                          </td>
-                        </tr>
-                      })
-                    }
-                  </tbody>
-                </table>
                 <div className='footer--memory'>
                   <div className='storage'>
                     <div className='range'>
